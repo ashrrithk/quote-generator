@@ -77,6 +77,7 @@ h1 {
     padding: 50px 20px;
     margin-bottom: 20px;
     width: 600px;
+    position: relative;
 }
 
 #quote {
@@ -130,47 +131,9 @@ h1 {
     margin: 0 auto;
 }
 
-
-/* Light Mode */
-body.light-mode {
-    background-color: #fff;
-    color: #1f1f1f;
-}
-
-#quote.light-mode {
-    color: black;
-}
-
-.btn-white.light-mode {
-    border: solid 1.75px #1f1f1f;
-    background: #1f1f1f;
-    color: #fff;
-}
-
-.btn-white.light-mode:hover {
-    border: solid 1.5px #000;
-    background: transparent;
-    color: #000;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #000;
-    color: #fff;
-}
-
-#quote.dark-mode {
-    color: whitesmoke;
-}
-
-.btn-white.dark-mode {
-    border: solid 1.75px #fff;
-    background: #fff;
-    color: #1f1f1f;
-}
-
-.btn-white.dark-mode:hover {
-    border: solid 1.5px #fff;
-    background: transparent;
-    color: #fff;
+#copyBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }

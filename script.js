@@ -7,11 +7,13 @@ const lightMode = document.getElementById("toggleBtnSun");
 const darkMode = document.getElementById("toggleBtnMoon");
 const currentTheme = localStorage.getItem('theme');
 const themeStyle = document.getElementById('theme-style');
+const copyBtn = document.getElementById("copyBtn");
+const copyText = document.getElementById("quote");
 
-btn.addEventListener("click", getQuote);
-lightMode.addEventListener("click", toggleModeLight);
-darkMode.addEventListener("click", toggleModeDark);
 
+
+
+//Get quote from API
 function getQuote() {
     fetch(api)
     .then((res) => res.json())
@@ -25,14 +27,14 @@ function getQuote() {
     });
 }
 
+//Check for theme in local storage
 if(currentTheme === 'light'){
     lightMode.hidden = true;
     darkMode.hidden = false;
     themeStyle.href = 'style-light.css';
 }
 
-
-
+//Toggle to light mode
 function toggleModeLight() {
   themeStyle.href = 'style-light.css';
     lightMode.hidden = true;
@@ -41,6 +43,7 @@ function toggleModeLight() {
 
 }
 
+//Toggle to dark mode
 function toggleModeDark() {
     // document.body.classList.toggle("dark-mode");
     // document.getElementById("quote").classList.toggle("dark-mode");
@@ -50,6 +53,19 @@ function toggleModeDark() {
     lightMode.hidden = false;
     darkMode.hidden = true;
     localStorage.setItem('theme', 'dark');
-
 }
+
+btn.addEventListener("click", getQuote);
+lightMode.addEventListener("click", toggleModeLight);
+darkMode.addEventListener("click", toggleModeDark);
+copyBtn.addEventListener("click", () => {
+navigator.clipboard.writeText(copyText.textContent)
+    .then(() => {
+      // Alert the user that the text has been copied
+      alert("Quote copied to clipboard!");
+    })
+    .catch((error) => {
+      console.error("Could not copy text: ", error);
+    });
+});
 
